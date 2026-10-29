@@ -1,69 +1,520 @@
-<!DOCTYPE html>
-<html lang="en-GB">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mission SPACE Forward</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission SPACE Forward · Quick Guide | Mission SPACE</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <style>
     :root {
-      --bg: #f5f3ef;
-      --card: #ffffff;
-      --text: #2b2b2b;
-      --muted: #6b6b6b;
-      --accent: #4a5a6a;
-      --on-accent: #ffffff;
-      --line: #e4e0d8;
-      --soft: #f0ede7;
+      --brand: #1d4ed8;
+      --brand-lt: #3b82f6;
+      --ink: #111827;
+      --muted: #6b7280;
+      --soft: #f9fafb;
+      --b: #e5e7eb;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.07), 0 4px 12px rgba(0,0,0,.04);
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      font-size: 18px;
+    html { scroll-behavior: smooth; }
+    body { background: #f8fafc; color: var(--ink); }
+
+    /* ── Navbar ── */
+    .ms-nav { background: #1d4ed8; border-bottom: 1px solid rgba(255,255,255,.1); padding: 0; }
+    .ms-nav .container { min-height: 56px; display: flex; align-items: center; }
+    .ms-nav .navbar-brand { font-weight: 800; font-size: 1rem; color: #fff; letter-spacing: .2px; padding: 0; margin-right: 32px; }
+    .ms-nav .navbar-brand:hover { color: rgba(255,255,255,.85); }
+    .ms-nav .nav-link { color: rgba(255,255,255,.75); font-size: .875rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color .15s, background .15s; }
+    .ms-nav .nav-link:hover, .ms-nav .nav-link.active { color: #fff; background: rgba(255,255,255,.12); }
+    .ms-nav .container { flex-wrap: wrap; gap: 4px 0; padding-top: 8px; padding-bottom: 8px; }
+    .ms-nav .nav-links { list-style: none; display: flex; flex-wrap: wrap; gap: 2px; margin: 0; padding: 0; }
+
+    /* ── Hero ── */
+    .ms-hero { padding: 72px 0 56px; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--brand-lt); margin-bottom: 16px; }
+    .ms-hero h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    .ms-hero .subtitle { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.65; margin-bottom: 28px; }
+    .goal-card {
+      background: #fff; border: 1px solid var(--b); border-left: 4px solid var(--brand);
+      border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 24px; max-width: 640px;
     }
-    main { max-width: 640px; margin: 0 auto; padding: 48px 16px 64px; }
-    header { text-align: center; margin-bottom: 28px; }
-    .badge {
-      display: inline-block; font-size: 13px; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--muted);
-      border: 1px solid var(--line); background: var(--card);
-      border-radius: 999px; padding: 4px 14px;
+    .goal-card .label { font-size: 10.5px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--brand-lt); margin-bottom: 6px; }
+    .goal-card p { margin: 0; color: #374151; line-height: 1.7; font-size: .95rem; }
+
+    /* Section quick-nav */
+    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .jump a {
+      font-size: .8rem; font-weight: 600; color: var(--ink); text-decoration: none;
+      background: #fff; border: 1.5px solid var(--b); border-radius: 999px; padding: 6px 14px;
+      transition: border-color .15s, background .15s;
     }
-    h1 { font-size: 2.4rem; margin: 14px 0 8px; line-height: 1.2; }
-    .tagline { color: var(--muted); margin: 0; }
-    .space {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
-      margin: 0 0 24px;
+    .jump a:hover { border-color: #bfdbfe; background: #eff6ff; color: var(--brand); }
+
+    /* ── Sections ── */
+    .ms-section { padding: 64px 0; border-top: 1px solid var(--b); }
+    .ms-section.white { background: #fff; }
+    .section-head { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .step-number {
+      flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; background: var(--brand); color: #fff;
+      font-size: .9rem; font-weight: 800; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 5px #fff, 0 0 0 6px var(--b);
     }
-    .space div {
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: 12px; padding: 10px 4px;
-      text-align: center; font-size: 13px; color: var(--muted);
+    .section-label { font-size: 10.5px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--brand-lt); margin: 0 0 2px; }
+    .ms-section h2 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 800; margin: 0; }
+    .lead-text { color: var(--muted); font-size: .95rem; line-height: 1.7; max-width: 680px; }
+
+    .ms-card {
+      background: var(--soft); border-radius: var(--radius); padding: 24px; height: 100%;
+      transition: box-shadow .15s; border: 1px solid transparent;
     }
-    .space b { display: block; font-size: 1.5rem; color: var(--accent); line-height: 1.2; }
-    .links { display: flex; flex-direction: column; gap: 14px; }
-    a.card {
-      display: block; text-decoration: none; color: var(--text);
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: 16px; padding: 20px 22px;
+    .white .ms-card { background: var(--soft); }
+    .ms-section:not(.white) .ms-card { background: #fff; border-color: var(--b); }
+    .ms-card:hover { box-shadow: var(--shadow); }
+    .ms-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .ms-card p, .ms-card li { font-size: .875rem; color: #4b5563; line-height: 1.7; }
+    .ms-card p:last-child { margin-bottom: 0; }
+
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li { position: relative; padding-left: 28px; margin-bottom: 8px; }
+    .checklist li::before {
+      content: ''; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 4px;
+      border: 1.5px solid #bfdbfe; background: #eff6ff;
     }
-    a.card:hover { border-color: var(--accent); }
-    a.card strong { display: block; font-size: 1.2rem; color: var(--accent); }
-    a.card span { color: var(--muted); font-size: 16px; }
-    a.primary { background: var(--accent); border-color: var(--accent); }
-    a.primary strong, a.primary span { color: var(--on-accent); }
-    footer { text-align: center; color: var(--muted); font-size: 15px; margin-top: 32px; }
-    @media (max-width: 420px) { .space div { font-size: 11px; } }
+    .checklist li::after {
+      content: ''; position: absolute; left: 5px; top: 7px; width: 6px; height: 9px;
+      border: solid var(--brand); border-width: 0 2px 2px 0; transform: rotate(45deg);
+    }
+
+    .note {
+      display: flex; gap: 10px; align-items: flex-start; font-size: .85rem; color: #1e3a8a;
+      background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin-top: 20px;
+    }
+
+    /* Play steps */
+    .play-step { display: flex; gap: 16px; }
+    .play-letter {
+      flex: 0 0 auto; width: 32px; height: 32px; border-radius: 8px; background: #eff6ff; color: var(--brand);
+      border: 1.5px solid #bfdbfe; font-weight: 800; font-size: .85rem; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* SPACE dimension badges */
+    .dim-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .dim-badge { font-size: 12px; font-weight: 600; padding: 6px 13px; border-radius: 999px; border: 1.5px solid; }
+    .dim-badge.s { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+    .dim-badge.p { background: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
+    .dim-badge.a { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+    .dim-badge.c { background: #f5f3ff; border-color: #ddd6fe; color: #5b21b6; }
+    .dim-badge.e { background: #ecfeff; border-color: #a5f3fc; color: #0e7490; }
+
+    .q-box { background: #fff; border: 1px solid var(--b); border-radius: 10px; padding: 14px 16px; height: 100%; }
+    .q-box .q { font-size: 11px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; color: var(--brand); margin-bottom: 4px; }
+    .q-box p { margin: 0; font-size: .85rem; }
+
+    /* Loop */
+    .loop { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0 4px; }
+    .loop span.pill { background: var(--brand); color: #fff; font-size: .8rem; font-weight: 600; padding: 6px 14px; border-radius: 999px; }
+    .loop span.arrow { color: var(--muted); font-weight: 700; }
+
+    /* Board quadrants */
+    .board-wrap { display: grid; grid-template-columns: 28px 1fr; grid-template-rows: 1fr 28px; gap: 8px; }
+    .axis-y { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); }
+    .axis-x { grid-column: 2; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); align-self: center; }
+    .quadrants { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .quad { border-radius: var(--radius); padding: 20px; border: 1.5px solid; min-height: 150px; }
+    .quad h3 { font-size: .95rem; font-weight: 800; margin-bottom: 6px; }
+    .quad p { font-size: .85rem; margin: 0; line-height: 1.6; }
+    .quad.more     { background: #f0fdf4; border-color: #bbf7d0; color: #14532d; }
+    .quad.celebrate{ background: #eff6ff; border-color: #bfdbfe; color: #1e3a8a; }
+    .quad.park     { background: #f9fafb; border-color: #e5e7eb; color: #374151; }
+    .quad.redirect { background: #fffbeb; border-color: #fde68a; color: #78350f; }
+
+    .prompt-list { list-style: none; padding: 0; margin: 0; }
+    .prompt-list li { background: #fff; border: 1px solid var(--b); border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; font-size: .9rem; font-weight: 500; }
+
+    /* Reflection flow */
+    .reflect-card { background: var(--soft); border-radius: var(--radius); padding: 22px; height: 100%; text-align: center; position: relative; }
+    .reflect-card .num {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 800; font-size: .85rem;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;
+    }
+    .reflect-card { background: #fff; border: 1px solid var(--b); display: flex; flex-direction: column; }
+    .reflect-card .theme { font-size: 10.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--brand-lt); margin-bottom: 8px; }
+    .reflect-card h3 { font-size: .95rem; font-weight: 700; line-height: 1.5; margin: 0; }
+    .reflect-card .hint { margin: 14px 0 0; padding-top: 12px; border-top: 1px dashed var(--b); font-size: .8rem; color: var(--muted); margin-top: auto; }
+    .reflect-card h3 + .hint { margin-top: auto; }
+    .reflect-card h3 { margin-bottom: 14px; }
+    @media (min-width: 992px) {
+      .reflect-row > div:not(:last-child) .reflect-card::after {
+        content: '→'; position: absolute; right: -18px; top: 50%; transform: translateY(-50%);
+        color: #9ca3af; font-weight: 700; z-index: 2;
+      }
+    }
+
+    /* Remember */
+    .remember {
+      background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #fff; border-radius: var(--radius);
+      padding: 36px; box-shadow: var(--shadow);
+    }
+    .remember h2 { color: #fff; }
+    .remember .big { font-size: 1.15rem; font-weight: 700; color: #93c5fd; margin: 12px 0 20px; }
+    .remember .values { display: flex; flex-wrap: wrap; gap: 8px; }
+    .remember .values span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); padding: 7px 14px; border-radius: 999px; font-size: .85rem; }
+
+    .btn-primary-ms {
+      background: var(--brand); border: none; color: #fff; font-weight: 600; padding: 11px 26px; border-radius: 8px;
+      font-size: .925rem; text-decoration: none; display: inline-block; box-shadow: 0 2px 8px rgba(29,78,216,.25);
+      transition: background .15s, box-shadow .15s;
+    }
+    .btn-primary-ms:hover { background: #1e40af; color: #fff; box-shadow: 0 4px 14px rgba(29,78,216,.35); }
+    .btn-secondary-ms {
+      background: #fff; border: 1.5px solid var(--b); color: var(--ink); font-weight: 500; padding: 11px 26px; border-radius: 8px;
+      font-size: .925rem; text-decoration: none; display: inline-block; transition: background .15s, border-color .15s;
+    }
+    .btn-secondary-ms:hover { background: var(--soft); border-color: #d1d5db; color: var(--ink); }
+
+    /* ── Footer ── */
+    .ms-footer { background: #1e293b; padding: 18px 0; }
+    .ms-footer .footer-brand { font-weight: 800; font-size: .95rem; color: #fff; margin: 0; }
+    .ms-footer .footer-links { list-style: none; padding: 0; margin: 0; display: flex; gap: 4px; flex-wrap: wrap; }
+    .ms-footer .footer-links a { color: rgba(255,255,255,.55); font-size: .8rem; font-weight: 500; text-decoration: none; padding: 4px 8px; border-radius: 5px; transition: color .15s, background .15s; }
+    .ms-footer .footer-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+
+    @media print {
+      .ms-nav, .ms-footer, .jump { display: none !important; }
+      .ms-section { padding: 28px 0; break-inside: avoid; }
+    }
   </style>
 </head>
-<body>
-  <main>
-    <header>
-      <h1>Mission SPACE Forward</h1>
-    </header>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar navbar-expand-lg ms-nav">
+    <div class="container">
+      <a class="navbar-brand" href="#top">🚀 Mission SPACE</a>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="#setup">Set up</a></li>
+        <li><a class="nav-link" href="#play">How to play</a></li>
+        <li><a class="nav-link" href="#review">Review</a></li>
+        <li><a class="nav-link" href="#reflect">Reflect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1" id="top">
+
+    <!-- ── Hero ── -->
+    <section class="ms-hero">
+      <div class="container">
+        <p class="eyebrow">Activity Instructions · Quick Guide</p>
+        <h1>Mission SPACE Forward</h1>
+        <p class="subtitle">
+          A card-based team activity for talking about how you work today, what you want more of,
+          and what could help you move forward.
+        </p>
+        <div class="goal-card">
+          <p class="label">🎯 Your goal</p>
+          <p>Build a shared picture of how your team is working now, what you would like to experience more of, and what could help you move forward.</p>
+        </div>
+        <div class="jump">
+          <a href="#setup">1 · Set up ⚙️</a>
+          <a href="#play">2 · How to play 🃏</a>
+          <a href="#review">3 · Review your board 👀</a>
+          <a href="#reflect">4 · Reflect &amp; move forward 💭</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 1. Set up ── -->
+    <section class="ms-section white" id="setup">
+      <div class="container">
+        <div class="section-head">
+          <div class="step-number">1</div>
+          <div>
+            <p class="section-label">Step one</p>
+            <h2>Set up ⚙️</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="ms-card">
+              <h3>Choose an Activity Lead</h3>
+              <p>Pick one person to keep the activity moving and watch the time.</p>
+              <p>They do not make the decisions. Everyone contributes equally.</p>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="ms-card">
+              <h3>Prepare the cards</h3>
+              <ul class="checklist">
+                <li>Separate the <strong>Statement Cards</strong> and <strong>Reflection Cards</strong>.</li>
+                <li>Put the Reflection Cards to one side for now. You will use them at the end.</li>
+                <li>Shuffle the Statement Cards.</li>
+                <li>Deal <strong>7 Statement Cards</strong> to each player.</li>
+                <li>Place the remaining Statement Cards face down.</li>
+                <li>Put the <strong>Mission SPACE Forward board</strong> where everyone can see and reach it.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="note"><span>🔒</span><span>Keep your hand of cards private until you play one.</span></div>
+      </div>
+    </section>
+
+    <!-- ── 2. How to play ── -->
+    <section class="ms-section" id="play">
+      <div class="container">
+        <div class="section-head">
+          <div class="step-number">2</div>
+          <div>
+            <p class="section-label">Step two</p>
+            <h2>How to play 🃏</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- A -->
+          <div class="col-12">
+            <div class="ms-card">
+              <div class="play-step">
+                <div class="play-letter">A</div>
+                <div>
+                  <h3>Choose a SPACE dimension</h3>
+                  <p>At the start of each round, agree which SPACE dimension you want to play:</p>
+                  <div class="dim-badges">
+                    <span class="dim-badge s">😊 Satisfaction &amp; Well-being</span>
+                    <span class="dim-badge p">🚀 Performance</span>
+                    <span class="dim-badge a">✅ Activity</span>
+                    <span class="dim-badge c">💬 Communication &amp; Collaboration</span>
+                    <span class="dim-badge e">⚡ Efficiency &amp; Flow</span>
+                  </div>
+                  <p>Play each SPACE dimension at least once during the activity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- B -->
+          <div class="col-md-6">
+            <div class="ms-card">
+              <div class="play-step">
+                <div class="play-letter">B</div>
+                <div>
+                  <h3>Pick a card</h3>
+                  <p>Select a Statement Card from your hand that matches the SPACE dimension you have chosen.</p>
+                  <p>Play this card <strong>face down</strong>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- C -->
+          <div class="col-md-6">
+            <div class="ms-card">
+              <div class="play-step">
+                <div class="play-letter">C</div>
+                <div>
+                  <h3>Reveal</h3>
+                  <p>Once everyone has played a card, choose one player to shuffle the played cards.</p>
+                  <p>That player reads each statement aloud.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- D -->
+          <div class="col-12">
+            <div class="ms-card">
+              <div class="play-step">
+                <div class="play-letter">D</div>
+                <div class="flex-grow-1">
+                  <h3>Discuss and place it on the board 📍</h3>
+                  <p>Discuss each statement as a team, thinking about it in terms of your own work and experiences. Then agree together where it belongs on the board, considering both questions:</p>
+                  <div class="row g-3 my-1">
+                    <div class="col-md-6">
+                      <div class="q-box">
+                        <div class="q">How much does this happen?</div>
+                        <p>How much does this currently happen in our team?</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="q-box">
+                        <div class="q">How much should this happen?</div>
+                        <p>How much would we like to experience this in our team?</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3">Use the 1–5 scales to agree the position, then place the card where the two ratings meet.</p>
+                  <p>The placement should represent the <strong>team's agreed view</strong>, not just the view of the person who played the card.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- F -->
+          <div class="col-12">
+            <div class="ms-card">
+              <div class="play-step">
+                <div class="play-letter">E</div>
+                <div>
+                  <h3>Repeat 🔁</h3>
+                  <p>Continue the activity, making sure you have played each SPACE dimension at least once.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 3. Review ── -->
+    <section class="ms-section white" id="review">
+      <div class="container">
+        <div class="section-head">
+          <div class="step-number">3</div>
+          <div>
+            <p class="section-label">Step three</p>
+            <h2>Review your board 👀</h2>
+          </div>
+        </div>
+        <p class="lead-text mb-4">When you finish playing, look at the board as a whole. Notice where your cards have been placed.</p>
+
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-8">
+            <div class="board-wrap">
+              <div class="axis-y">How much does this happen? ↑</div>
+              <div class="quadrants">
+                <div class="quad redirect">
+                  <h3>↪️ Redirect</h3>
+                  <p>Things that may be happening but do not closely reflect where you want to be.</p>
+                </div>
+                <div class="quad celebrate">
+                  <h3>🎉 Celebrate</h3>
+                  <p>Things that are happening and that you want to continue.</p>
+                </div>
+                <div class="quad park">
+                  <h3>⏸️ Park</h3>
+                  <p>Things that are less important to focus on right now.</p>
+                </div>
+                <div class="quad more">
+                  <h3>🌱 More of this</h3>
+                  <p>Things you would like to experience more often.</p>
+                </div>
+              </div>
+              <div class="axis-x">How much should this happen? →</div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="ms-card">
+              <h3>Ask yourselves</h3>
+              <ul class="prompt-list mt-3">
+                <li>What patterns do you notice?</li>
+                <li>What stands out?</li>
+                <li>Where are the strengths and opportunities?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 4. Reflect ── -->
+    <section class="ms-section" id="reflect">
+      <div class="container">
+        <div class="section-head">
+          <div class="step-number">4</div>
+          <div>
+            <p class="section-label">Step four</p>
+            <h2>Reflect &amp; move forward 💭</h2>
+          </div>
+        </div>
+
+        <p class="lead-text">
+          Now take the <strong>4 Reflection Cards</strong> you put aside at the start and complete them in order:
+          <strong>1 → 2 → 3 → 4</strong>. Each card guides your team through the final reflection.
+        </p>
+        <p class="lead-text mb-4">
+          Take time to discuss each prompt before moving to the next one. Use your board and the discussion you have already had to help answer the questions.
+        </p>
+
+        <div class="row g-4 reflect-row mb-4">
+          <div class="col-sm-6 col-lg-3">
+            <div class="reflect-card">
+              <div class="num">1</div>
+              <p class="theme">Where do we want to be?</p>
+              <h3>If this was working better, what would we notice?</h3>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="reflect-card">
+              <div class="num">2</div>
+              <p class="theme">Has it happened before?</p>
+              <h3>When has this worked better before? What was different?</h3>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="reflect-card">
+              <div class="num">3</div>
+              <p class="theme">What already helps?</p>
+              <h3>What strengths or resources do we already have that could help us?</h3>
+              <p class="hint">💡 Look at your 🎉 Celebrate cards</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="reflect-card">
+              <div class="num">4</div>
+              <p class="theme">What next?</p>
+              <h3>What is one small thing we could do to move closer to where we want to be?</h3>
+              <p class="hint">💡 Look at your 🌱 More of this cards</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="note"><span>✅</span><span>Finish by agreeing on the small steps or actions your team wants to take forward.</span></div>
+      </div>
+    </section>
+
+    <!-- ── Remember ── -->
+    <section class="ms-section white">
+      <div class="container">
+        <div class="remember">
+          <p class="section-label" style="color:#93c5fd">Throughout the activity</p>
+          <h2>Remember 🤝</h2>
+          <p class="big">There are no right or wrong placements.</p>
+          <div class="values">
+            <span>👂 Listen to each other</span>
+            <span>🙌 Respect different perspectives</span>
+            <span>🤝 Agree placements as a team</span>
+            <span>🧭 Focus on what can help you move forward</span>
+          </div>
+        </div>
+        <div class="d-flex gap-2 flex-wrap mt-4">
+          <a class="btn-primary-ms" href="#setup">Back to Set up</a>
+          <a class="btn-secondary-ms" href="javascript:window.print()">Print this guide</a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <!-- ── Footer ── -->
+  <footer class="ms-footer mt-auto">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+        <p class="footer-brand">Mission SPACE</p>
+        <ul class="footer-links">
+          <li><a href="#">About Mission SPACE</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Imprint &amp; Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
