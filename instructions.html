@@ -34,7 +34,7 @@
     .ms-hero { padding: 72px 0 56px; }
     .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--brand-lt); margin-bottom: 16px; }
     .ms-hero h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
-    .ms-hero .subtitle { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.65; margin-bottom: 28px; }
+    .ms-hero .subtitle { font-size: 1.05rem; color: var(--muted); line-height: 1.65; margin-bottom: 28px; }
     .goal-card {
       background: #fff; border: 1px solid var(--b); border-left: 4px solid var(--brand);
       border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 24px; max-width: 640px;
@@ -62,7 +62,7 @@
     }
     .section-label { font-size: 10.5px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--brand-lt); margin: 0 0 2px; }
     .ms-section h2 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 800; margin: 0; }
-    .lead-text { color: var(--muted); font-size: .95rem; line-height: 1.7; max-width: 680px; }
+    .lead-text { color: var(--muted); font-size: .95rem; line-height: 1.7; }
 
     .ms-card {
       background: var(--soft); border-radius: var(--radius); padding: 24px; height: 100%;
@@ -90,6 +90,12 @@
       display: flex; gap: 10px; align-items: flex-start; font-size: .85rem; color: #1e3a8a;
       background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin-top: 20px;
     }
+    .note.timing {
+      gap: 14px; align-items: center; font-size: .975rem; line-height: 1.6; color: #fff;
+      background: #c2410c; border-color: #c2410c; border-radius: var(--radius); padding: 18px 22px; margin-top: 28px;
+      box-shadow: var(--shadow);
+    }
+    .note.timing > span:first-child { font-size: 1.6rem; line-height: 1; }
 
     /* Play steps */
     .play-step { display: flex; gap: 16px; }
@@ -101,15 +107,70 @@
     /* SPACE dimension badges */
     .dim-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
     .dim-badge { font-size: 12px; font-weight: 600; padding: 6px 13px; border-radius: 999px; border: 1.5px solid; }
-    .dim-badge.s { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
-    .dim-badge.p { background: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
-    .dim-badge.a { background: #fffbeb; border-color: #fde68a; color: #92400e; }
-    .dim-badge.c { background: #f5f3ff; border-color: #ddd6fe; color: #5b21b6; }
-    .dim-badge.e { background: #ecfeff; border-color: #a5f3fc; color: #0e7490; }
+    .dim-badge.s { background: #f0fdf4; border-color: #86efac; color: #15803d; }
+    .dim-badge.p { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+    .dim-badge.a { background: #fff7ed; border-color: #fdba74; color: #c2410c; }
+    .dim-badge.c { background: #fdf2f8; border-color: #f9a8d4; color: #be185d; }
+    .dim-badge.e { background: #faf5ff; border-color: #d8b4fe; color: #7e22ce; }
 
     .q-box { background: #fff; border: 1px solid var(--b); border-radius: 10px; padding: 14px 16px; height: 100%; }
     .q-box .q { font-size: 11px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; color: var(--brand); margin-bottom: 4px; }
     .q-box p { margin: 0; font-size: .85rem; }
+
+    /* Example round */
+    .example { background: #fff; border: 1px solid var(--b); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; margin-top: 28px; }
+    .example .eg-label { font-size: 10.5px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: #15803d; margin: 0 0 2px; }
+    .example > h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
+    .example > p { font-size: .9rem; color: var(--muted); margin-bottom: 20px; }
+    .eg-flow { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .eg-step { position: relative; display: flex; gap: 16px; align-items: flex-start; }
+    .eg-visual { flex: 0 0 132px; height: 92px; background: var(--soft); border: 1px solid var(--b); border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .eg-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .eg-head .play-letter { width: 24px; height: 24px; border-radius: 6px; font-size: .75rem; }
+    .eg-step h4 { font-size: .875rem; font-weight: 700; margin: 0; }
+    .eg-step p { font-size: .825rem; color: #4b5563; line-height: 1.6; margin: 0; }
+    .eg-step p.eg-tip { font-size: .775rem; font-weight: 600; margin-top: 8px; }
+    .eg-tip.ok { color: #15803d; }
+    .eg-tip.time { color: #c2410c; }
+    .eg-visual .dim-badge { white-space: nowrap; }
+    .mini-card { position: relative; flex: 0 0 auto; width: 34px; height: 48px; border-radius: 5px; border: 1.5px solid; background: #fff; }
+    .mini-card::before { content: ''; position: absolute; inset: 9px 6px; background: repeating-linear-gradient(to bottom, currentColor 0 2px, transparent 2px 6px); opacity: .55; }
+    .mini-card.s { background: #f0fdf4; border-color: #22c55e; color: #15803d; }
+    .mini-card.p { background: #eff6ff; border-color: #3b82f6; color: #1d4ed8; }
+    .mini-card.e { background: #faf5ff; border-color: #a855f7; color: #7e22ce; }
+    .mini-card.back { background: #1e3a5f; border-color: #0f172a; }
+    .mini-card.back::before { inset: 5px; background: repeating-linear-gradient(45deg, rgba(255,255,255,.35) 0 2px, transparent 2px 5px); opacity: 1; }
+    .eg-fan .mini-card:first-child { transform: rotate(-10deg); margin-right: -10px; }
+    .eg-fan .mini-card:last-child { transform: rotate(10deg); margin-left: -10px; }
+    .eg-fan .mini-card.pick { transform: translateY(-9px); z-index: 1; box-shadow: 0 3px 8px rgba(21,128,61,.3); }
+    .eg-stack .mini-card + .mini-card { margin-left: -26px; }
+    .eg-stack .mini-card:nth-child(1) { transform: rotate(-7deg); }
+    .eg-stack .mini-card:nth-child(3) { transform: rotate(7deg); }
+    .eg-speak { font-size: 1.25rem; line-height: 1; margin-left: 6px; }
+    .mini-board { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; width: 88px; height: 70px; }
+    .mini-board span { position: relative; border-radius: 4px; border: 1px solid; }
+    .mini-board span:nth-child(1) { background: #fffbeb; border-color: #fde68a; }
+    .mini-board span:nth-child(2) { background: #eff6ff; border-color: #bfdbfe; }
+    .mini-board span:nth-child(3) { background: #f9fafb; border-color: #e5e7eb; }
+    .mini-board span:nth-child(4) { background: #f0fdf4; border-color: #bbf7d0; }
+    .mini-board i { position: absolute; left: 14px; top: 6px; width: 13px; height: 18px; border-radius: 2px; background: #22c55e; }
+    .mini-board i + i { left: 22px; top: 11px; }
+    .eg-next { flex-wrap: wrap; align-content: center; padding: 6px; }
+    .eg-next .dim-badge { padding: 2px 8px; font-size: 11px; }
+    .eg-next .dim-badge.done { opacity: .5; }
+    @media (max-width: 575.98px) {
+      .eg-step { flex-direction: column; gap: 10px; }
+      .eg-visual { flex-basis: auto; width: 100%; }
+    }
+    @media (min-width: 1200px) {
+      .eg-flow { grid-template-columns: repeat(5, 1fr); gap: 24px; }
+      .eg-step { flex-direction: column; gap: 12px; }
+      .eg-visual { flex-basis: auto; width: 100%; }
+      .eg-step:not(:last-child)::after {
+        content: '→'; position: absolute; right: -18px; top: 46px; transform: translateY(-50%);
+        color: #9ca3af; font-weight: 700;
+      }
+    }
 
     /* Loop */
     .loop { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0 4px; }
@@ -117,31 +178,44 @@
     .loop span.arrow { color: var(--muted); font-weight: 700; }
 
     /* Board quadrants */
-    .board-wrap { display: grid; grid-template-columns: 28px 1fr; grid-template-rows: 1fr 28px; gap: 8px; }
-    .axis-y { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); }
-    .axis-x { grid-column: 2; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); align-self: center; }
-    .quadrants { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .quad { border-radius: var(--radius); padding: 20px; border: 1.5px solid; min-height: 150px; }
+    .board-wrap { display: grid; grid-template-columns: 24px 20px 1fr; grid-template-rows: 1fr 22px 24px; gap: 6px; }
+    .axis-y { grid-column: 1; grid-row: 1; writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); }
+    .axis-x { grid-column: 3; grid-row: 3; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); align-self: center; }
+    .ticks { display: grid; font-size: .85rem; font-weight: 700; color: var(--muted); text-align: center; }
+    .ticks span:nth-child(3) { color: var(--ink); font-weight: 800; }
+    .ticks-y { grid-column: 2; grid-row: 1; grid-template-rows: repeat(5, 1fr); align-items: center; }
+    .ticks-x { grid-column: 3; grid-row: 2; grid-template-columns: repeat(5, 1fr); align-items: center; }
+    .quadrants { grid-column: 3; grid-row: 1; position: relative; display: grid; grid-template-columns: 1fr 1fr; border: 2px solid #64748b; border-radius: var(--radius); overflow: hidden; }
+    .quadrants::before, .quadrants::after { content: ''; position: absolute; background: #64748b; }
+    .quadrants::before { top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; }
+    .quadrants::after { left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; }
+    .quad { padding: 20px; min-height: 170px; }
     .quad h3 { font-size: .95rem; font-weight: 800; margin-bottom: 6px; }
     .quad p { font-size: .85rem; margin: 0; line-height: 1.6; }
-    .quad.more     { background: #f0fdf4; border-color: #bbf7d0; color: #14532d; }
-    .quad.celebrate{ background: #eff6ff; border-color: #bfdbfe; color: #1e3a8a; }
-    .quad.park     { background: #f9fafb; border-color: #e5e7eb; color: #374151; }
-    .quad.redirect { background: #fffbeb; border-color: #fde68a; color: #78350f; }
+    .quad.more     { background: #f0fdf4; color: #14532d; }
+    .quad.celebrate{ background: #eff6ff; color: #1e3a8a; }
+    .quad.park     { background: #f9fafb; color: #374151; }
+    .quad.redirect { background: #fffbeb; color: #78350f; }
 
-    .prompt-list { list-style: none; padding: 0; margin: 0; }
-    .prompt-list li { background: #fff; border: 1px solid var(--b); border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; font-size: .9rem; font-weight: 500; }
+    /* Ask yourselves */
+    .ask-grid { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .ask-grid li { background: #fff; border: 1px solid var(--b); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; font-size: .95rem; font-weight: 700; line-height: 1.4; }
+    .ask-icon { width: 52px; height: 52px; border-radius: 50%; background: #eff6ff; color: var(--brand); display: flex; align-items: center; justify-content: center; }
+    .ask-icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    @media (min-width: 768px) {
+      .ask-grid { grid-template-columns: repeat(3, 1fr); }
+    }
 
     /* Reflection flow */
     .reflect-card { background: var(--soft); border-radius: var(--radius); padding: 22px; height: 100%; text-align: center; position: relative; }
     .reflect-card .num {
-      width: 36px; height: 36px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 800; font-size: .85rem;
+      width: 36px; height: 36px; border-radius: 50%; background: #facc15; color: #422006; font-weight: 800; font-size: .85rem;
       display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;
     }
-    .reflect-card { background: #fff; border: 1px solid var(--b); display: flex; flex-direction: column; }
-    .reflect-card .theme { font-size: 10.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--brand-lt); margin-bottom: 8px; }
+    .reflect-card { background: #fefce8; border: 1px solid #fde047; display: flex; flex-direction: column; }
+    .reflect-card .theme { font-size: 10.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: #854d0e; margin-bottom: 8px; }
     .reflect-card h3 { font-size: .95rem; font-weight: 700; line-height: 1.5; margin: 0; }
-    .reflect-card .hint { margin: 14px 0 0; padding-top: 12px; border-top: 1px dashed var(--b); font-size: .8rem; color: var(--muted); margin-top: auto; }
+    .reflect-card .hint { margin: 14px 0 0; padding-top: 12px; border-top: 1px dashed #fde047; font-size: .8rem; color: #713f12; margin-top: auto; }
     .reflect-card h3 + .hint { margin-top: auto; }
     .reflect-card h3 { margin-bottom: 14px; }
     @media (min-width: 992px) {
@@ -150,16 +224,6 @@
         color: #9ca3af; font-weight: 700; z-index: 2;
       }
     }
-
-    /* Remember */
-    .remember {
-      background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #fff; border-radius: var(--radius);
-      padding: 36px; box-shadow: var(--shadow);
-    }
-    .remember h2 { color: #fff; }
-    .remember .big { font-size: 1.15rem; font-weight: 700; color: #93c5fd; margin: 12px 0 20px; }
-    .remember .values { display: flex; flex-wrap: wrap; gap: 8px; }
-    .remember .values span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); padding: 7px 14px; border-radius: 999px; font-size: .85rem; }
 
     .btn-primary-ms {
       background: var(--brand); border: none; color: #fff; font-weight: 600; padding: 11px 26px; border-radius: 8px;
@@ -186,7 +250,7 @@
     }
   </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" id="top">
 
   <!-- ── Navbar ── -->
   <nav class="navbar navbar-expand-lg ms-nav">
@@ -195,50 +259,37 @@
     </div>
   </nav>
 
-  <main class="flex-grow-1" id="top">
+  <main class="flex-grow-1">
 
     <!-- ── Hero ── -->
     <section class="ms-hero">
       <div class="container">
-        <p class="eyebrow">Activity Instructions · Quick Guide</p>
+        <p class="eyebrow">Activity Instructions</p>
         <h1>Mission SPACE Forward</h1>
         <p class="subtitle">
-          A card-based team activity for talking about how you work today, what you want more of,
-          and what could help you move forward.
+          A card-based team activity for reflecting on your current work practices. Gain insights to how your team is working now, what you would like to experience more of, and what could help you move forward.
         </p>
-        <div class="goal-card">
-          <p class="label">🎯 Your goal</p>
-          <p>Build a shared picture of how your team is working now, what you would like to experience more of, and what could help you move forward.</p>
-        </div>
         <div class="jump">
-          <a href="#setup">1 · Set up ⚙️</a>
-          <a href="#play">2 · How to play 🃏</a>
-          <a href="#review">3 · Review your board 👀</a>
-          <a href="#reflect">4 · Reflect &amp; move forward 💭</a>
+          <a href="#setup">1 · Set up</a>
+          <a href="#play">2 · How to play</a>
+          <a href="#review">3 · Review your board</a>
+          <a href="#reflect">4 · Reflect &amp; moving forward</a>
         </div>
       </div>
     </section>
 
-    <!-- ── 1. Set up ── -->
     <section class="ms-section white" id="setup">
       <div class="container">
         <div class="section-head">
           <div class="step-number">1</div>
           <div>
             <p class="section-label">Step one</p>
-            <h2>Set up ⚙️</h2>
+            <h2>Set up</h2>
           </div>
         </div>
 
         <div class="row g-4">
-          <div class="col-lg-5">
-            <div class="ms-card">
-              <h3>Choose an Activity Lead</h3>
-              <p>Pick one person to keep the activity moving and watch the time.</p>
-              <p>They do not make the decisions. Everyone contributes equally.</p>
-            </div>
-          </div>
-          <div class="col-lg-7">
+          <div class="col-12">
             <div class="ms-card">
               <h3>Prepare the cards</h3>
               <ul class="checklist">
@@ -247,24 +298,21 @@
                 <li>Shuffle the Statement Cards.</li>
                 <li>Deal <strong>7 Statement Cards</strong> to each player.</li>
                 <li>Place the remaining Statement Cards face down.</li>
-                <li>Put the <strong>Mission SPACE Forward board</strong> where everyone can see and reach it.</li>
+                <li>Put the <strong>Mission SPACE Forward</strong> board where everyone can see and access it.</li>
               </ul>
             </div>
           </div>
         </div>
-
-        <div class="note"><span>🔒</span><span>Keep your hand of cards private until you play one.</span></div>
       </div>
     </section>
 
-    <!-- ── 2. How to play ── -->
     <section class="ms-section" id="play">
       <div class="container">
         <div class="section-head">
           <div class="step-number">2</div>
           <div>
             <p class="section-label">Step two</p>
-            <h2>How to play 🃏</h2>
+            <h2>How to play</h2>
           </div>
         </div>
 
@@ -284,7 +332,6 @@
                     <span class="dim-badge c">💬 Communication &amp; Collaboration</span>
                     <span class="dim-badge e">⚡ Efficiency &amp; Flow</span>
                   </div>
-                  <p>Play each SPACE dimension at least once during the activity.</p>
                 </div>
               </div>
             </div>
@@ -324,8 +371,8 @@
               <div class="play-step">
                 <div class="play-letter">D</div>
                 <div class="flex-grow-1">
-                  <h3>Discuss and place it on the board 📍</h3>
-                  <p>Discuss each statement as a team, thinking about it in terms of your own work and experiences. Then agree together where it belongs on the board, considering both questions:</p>
+                  <h3>Discuss and place it on the board</h3>
+                  <p>Discuss each statement as a team, thinking about it in relation to your own work and experiences. Agree together where it belongs on the board, considering both questions:</p>
                   <div class="row g-3 my-1">
                     <div class="col-md-6">
                       <div class="q-box">
@@ -341,7 +388,6 @@
                     </div>
                   </div>
                   <p class="mt-3">Use the 1–5 scales to agree the position, then place the card where the two ratings meet.</p>
-                  <p>The placement should represent the <strong>team's agreed view</strong>, not just the view of the person who played the card.</p>
                 </div>
               </div>
             </div>
@@ -353,13 +399,84 @@
               <div class="play-step">
                 <div class="play-letter">E</div>
                 <div>
-                  <h3>Repeat 🔁</h3>
+                  <h3>Repeat</h3>
                   <p>Continue the activity, making sure you have played each SPACE dimension at least once.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Example round -->
+        <div class="example">
+          <p class="eg-label">Example</p>
+          <h3>What a round might look like...</h3>
+          <div class="eg-flow">
+            <div class="eg-step">
+              <div class="eg-visual" aria-hidden="true">
+                <span class="dim-badge s">😊 Satisfaction</span>
+              </div>
+              <div>
+                <div class="eg-head"><div class="play-letter">A</div><h4>Agree a dimension</h4></div>
+                <p>As a team, you agree to focus on Satisfaction &amp; Well-being for this round.</p>
+              </div>
+            </div>
+            <div class="eg-step">
+              <div class="eg-visual eg-fan" aria-hidden="true">
+                <span class="mini-card p"></span>
+                <span class="mini-card s pick"></span>
+                <span class="mini-card e"></span>
+              </div>
+              <div>
+                <div class="eg-head"><div class="play-letter">B</div><h4>Check your hand</h4></div>
+                <p>Look for a Statement Card that matches Satisfaction, select one and place it face down.</p>
+                <p class="eg-tip ok">No match? Don't worry, you can still join the discussion.</p>
+              </div>
+            </div>
+            <div class="eg-step">
+              <div class="eg-visual eg-stack" aria-hidden="true">
+                <span class="mini-card back"></span>
+                <span class="mini-card back"></span>
+                <span class="mini-card back"></span>
+                <span class="eg-speak">🗣️</span>
+              </div>
+              <div>
+                <div class="eg-head"><div class="play-letter">C</div><h4>Read them aloud</h4></div>
+                <p>One team member picks up all the face-down cards, shuffles them and reads each one aloud.</p>
+              </div>
+            </div>
+            <div class="eg-step">
+              <div class="eg-visual" aria-hidden="true">
+                <div class="mini-board">
+                  <span></span>
+                  <span><i></i></span>
+                  <span></span>
+                  <span><i></i><i></i></span>
+                </div>
+              </div>
+              <div>
+                <div class="eg-head"><div class="play-letter">D</div><h4>Discuss and place</h4></div>
+                <p>Talk through each statement and place it on the board together.</p>
+                <p class="eg-tip time">⏱️ Keep an eye on the time!</p>
+              </div>
+            </div>
+            <div class="eg-step">
+              <div class="eg-visual eg-next" aria-hidden="true">
+                <span class="dim-badge s done">S ✓</span>
+                <span class="dim-badge p">P</span>
+                <span class="dim-badge a">A</span>
+                <span class="dim-badge c">C</span>
+                <span class="dim-badge e">E</span>
+              </div>
+              <div>
+                <div class="eg-head"><div class="play-letter">E</div><h4>Play the next round</h4></div>
+                <p>When all the cards are placed and you are happy with them, choose another dimension to play.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note timing"><span></span><span><strong>Keep an eye on the time.</strong> It is easy to lose track of time when talking about the cards, so set yourselves a time limit. You may want to spend around 5 minutes per round, depending on how many cards are played, and roughly no more than a minute per card.</span></div>
       </div>
     </section>
 
@@ -370,47 +487,50 @@
           <div class="step-number">3</div>
           <div>
             <p class="section-label">Step three</p>
-            <h2>Review your board 👀</h2>
+            <h2>Review your board</h2>
           </div>
         </div>
-        <p class="lead-text mb-4">When you finish playing, look at the board as a whole. Notice where your cards have been placed.</p>
+        <p class="lead-text mb-4">When you finish placing your cards, look at the board as a whole.</p>
 
-        <div class="row g-4 align-items-stretch">
-          <div class="col-lg-8">
-            <div class="board-wrap">
-              <div class="axis-y">How much does this happen? ↑</div>
-              <div class="quadrants">
-                <div class="quad redirect">
-                  <h3>↪️ Redirect</h3>
-                  <p>Things that may be happening but do not closely reflect where you want to be.</p>
-                </div>
-                <div class="quad celebrate">
-                  <h3>🎉 Celebrate</h3>
-                  <p>Things that are happening and that you want to continue.</p>
-                </div>
-                <div class="quad park">
-                  <h3>⏸️ Park</h3>
-                  <p>Things that are less important to focus on right now.</p>
-                </div>
-                <div class="quad more">
-                  <h3>🌱 More of this</h3>
-                  <p>Things you would like to experience more often.</p>
-                </div>
-              </div>
-              <div class="axis-x">How much should this happen? →</div>
+        <div class="board-wrap">
+          <div class="axis-y">How much does this happen? ↑</div>
+          <div class="ticks ticks-y"><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+          <div class="quadrants">
+            <div class="quad redirect">
+              <h3>↪️ Redirect</h3>
+              <p>Things that may be happening but do not closely reflect where you want to be.</p>
+            </div>
+            <div class="quad celebrate">
+              <h3>🎉 Celebrate</h3>
+              <p>Things that are happening and that you want to continue.</p>
+            </div>
+            <div class="quad park">
+              <h3>⏸️ Park</h3>
+              <p>Things that are less important to focus on right now.</p>
+            </div>
+            <div class="quad more">
+              <h3>🌱 More of this</h3>
+              <p>Things you would like to experience more often.</p>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="ms-card">
-              <h3>Ask yourselves</h3>
-              <ul class="prompt-list mt-3">
-                <li>What patterns do you notice?</li>
-                <li>What stands out?</li>
-                <li>Where are the strengths and opportunities?</li>
-              </ul>
-            </div>
-          </div>
+          <div class="ticks ticks-x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+          <div class="axis-x">How much should this happen? →</div>
         </div>
+
+        <ul class="ask-grid">
+          <li>
+            <span class="ask-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+            What patterns do you notice?
+          </li>
+          <li>
+            <span class="ask-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2-5.5-2.9-5.5 2.9 1-6.2L3 9.6l6.2-.9z"/></svg></span>
+            What stands out?
+          </li>
+          <li>
+            <span class="ask-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
+            Where are the strengths and opportunities?
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -421,13 +541,13 @@
           <div class="step-number">4</div>
           <div>
             <p class="section-label">Step four</p>
-            <h2>Reflect &amp; move forward 💭</h2>
+            <h2>Reflect &amp; move forward</h2>
           </div>
         </div>
 
         <p class="lead-text">
           Now take the <strong>4 Reflection Cards</strong> you put aside at the start and complete them in order:
-          <strong>1 → 2 → 3 → 4</strong>. Each card guides your team through the final reflection.
+          <strong>1 → 4</strong>. Each card guides your team through the final reflection.
         </p>
         <p class="lead-text mb-4">
           Take time to discuss each prompt before moving to the next one. Use your board and the discussion you have already had to help answer the questions.
@@ -439,6 +559,7 @@
               <div class="num">1</div>
               <p class="theme">Where do we want to be?</p>
               <h3>If this was working better, what would we notice?</h3>
+              <p class="hint">💡 Look at your More of this cards</p>
             </div>
           </div>
           <div class="col-sm-6 col-lg-3">
@@ -453,7 +574,7 @@
               <div class="num">3</div>
               <p class="theme">What already helps?</p>
               <h3>What strengths or resources do we already have that could help us?</h3>
-              <p class="hint">💡 Look at your 🎉 Celebrate cards</p>
+              <p class="hint">💡 Look at your Celebrate cards</p>
             </div>
           </div>
           <div class="col-sm-6 col-lg-3">
@@ -461,33 +582,16 @@
               <div class="num">4</div>
               <p class="theme">What next?</p>
               <h3>What is one small thing we could do to move closer to where we want to be?</h3>
-              <p class="hint">💡 Look at your 🌱 More of this cards</p>
             </div>
           </div>
         </div>
-
-        <div class="note"><span>✅</span><span>Finish by agreeing on the small steps or actions your team wants to take forward.</span></div>
       </div>
     </section>
 
-    <!-- ── Remember ── -->
-    <section class="ms-section white">
-      <div class="container">
-        <div class="remember">
-          <p class="section-label" style="color:#93c5fd">Throughout the activity</p>
-          <h2>Remember 🤝</h2>
-          <p class="big">There are no right or wrong placements.</p>
-          <div class="values">
-            <span>👂 Listen to each other</span>
-            <span>🙌 Respect different perspectives</span>
-            <span>🤝 Agree placements as a team</span>
-            <span>🧭 Focus on what can help you move forward</span>
-          </div>
-        </div>
-        <div class="d-flex gap-2 flex-wrap mt-4">
-          <a class="btn-primary-ms" href="#setup">Back to Set up</a>
-          <a class="btn-secondary-ms" href="javascript:window.print()">Print this guide</a>
-        </div>
+    <!-- ── Back to top ── -->
+    <section class="ms-section white py-4">
+      <div class="container text-center">
+        <a class="btn-primary-ms" href="#top">Back to top ↑</a>
       </div>
     </section>
 
